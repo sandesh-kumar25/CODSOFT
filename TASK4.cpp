@@ -82,23 +82,27 @@ int main() {
 
     while (true) {
         cout << "\n--- Library Menu ---\n";
-        cout << "1. Search Book\n2. Checkout Book\n3. Return Book\n4. Exit\n5. View Book List\nEnter choice: ";
+        cout << "1. View Book List\n2. Search Book\n3. Checkout Book\n4. Return book\n5. Exit\nEnter choice: ";
         cin >> choice;
 
         if (choice == 1) {
+        	showBookList();
+            
+        }
+        else if (choice == 2) {
             string title;
             cout << "Enter book title to search: ";
             cin.ignore();
             getline(cin, title);
             searchBook(title);
         }
-        else if (choice == 2) {
+        else if (choice == 3) {
             int id;
             cout << "Enter book ID to checkout: ";
             cin >> id;
             checkoutBook(id);
         }
-        else if (choice == 3) {
+        else if (choice == 4) {
             int id, days;
             cout << "Enter book ID to return: ";
             cin >> id;
@@ -106,12 +110,9 @@ int main() {
             cin >> days;
             returnBook(id, days);
         }
-        else if (choice == 4) {
+        else if (choice == 5) {
             cout << "Thank you for using the Library Management System!" << endl;
             break;
-        }
-        else if (choice == 5) {
-            showBookList();
         }
         else {
             cout << "Invalid option. Try again.\n";
@@ -120,4 +121,3 @@ int main() {
 
     return 0;
 }
-
